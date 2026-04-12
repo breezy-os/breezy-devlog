@@ -1,0 +1,11 @@
+
+.footer-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  p { max-width: 515px; opacity: 1; }
+}
