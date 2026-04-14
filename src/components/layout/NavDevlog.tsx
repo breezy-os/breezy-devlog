@@ -24,13 +24,14 @@ export default function NavDevlog({ pageChanged }: Props) {
   }, [page, selectedPageRef, pageChanged])
 
   return (<>
-    {createLinkGroup(page, selectedPageRef, "Project Overview 1", [
+    {createLinkGroup(page, selectedPageRef, null, [
         { pageType: 'devlog', pageId: undefined, displayText: "Progress Tracker" },
         { pageType: 'devlog', pageId: 'devlog000', displayText: "Devlog 0: What's the big idea?" },
     ])}
 
     {createLinkGroup(page, selectedPageRef, "Phase 1", [
-        { pageType: 'devlog', pageId: 'devlog001', displayText: "Devlog 1: The devlog site" },
+        { pageType: 'devlog', pageId: 'devlog001', displayText: "Devlog 1: Project setup" },
+        // { pageType: 'devlog', pageId: 'devlog002', displayText: "Devlog 2: Displaying something" },
     ])}
   </>);
 }

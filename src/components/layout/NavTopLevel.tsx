@@ -85,9 +85,9 @@ export default function NavTopLevel({ theme, setTheme }: Props) {
   // Disco Gradients
   const [gradients, setGradients] = useState<{ x: number; y: number; hue: number }[]>([]);
   const backgroundString = useMemo(() => {
-    const opacity = theme === 'light' ? '30%' : '20%'
+    const opacity = theme === 'light' ? '30%' : '30%'
     const saturation = theme === 'light' ? '60' : '60'
-    const lightness = theme === 'light' ? '67' : '30'
+    const lightness = theme === 'light' ? '67' : '33'
 
     const bgs = gradients.map(g => {
       return `radial-gradient(circle at top ${g.y}% left ${g.x}%, hsla(${g.hue} ${saturation} ${lightness} / ${opacity}) 0, transparent 70%)`;

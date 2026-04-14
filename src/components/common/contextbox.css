@@ -1,0 +1,21 @@
+
+.context-box {
+  --box-bg: transparent;
+  --box-fg: var(--foreground20);
+
+  &.quote { padding: 0 20px; }
+  &.error { --box-bg: var(--red10);    --box-fg: var(--red60); }
+  &.info  { --box-bg: var(--blue10);   --box-fg: var(--blue60); }
+  &.note  { --box-bg: var(--purple10); --box-fg: var(--purple60); }
+
+  padding: 20px;
+  background: var(--box-bg);
+  border-radius: 12px;
+
+  display: flex;
+  gap: 20px;
+  .line {
+    background: var(--box-fg);
+    flex: 0 0 6px;
+  }
+}

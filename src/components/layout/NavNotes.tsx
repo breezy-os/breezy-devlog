@@ -23,12 +23,20 @@ export default function NavNotes({ pageChanged }: Props) {
   }, [page, selectedPageRef, pageChanged])
 
   return (<>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-      <Link className="nav-link" ref={page == undefined ? selectedPageRef : null} href={`/notes`}>What is this place!?</Link>
-    </div>
+    {createLinkGroup(page, selectedPageRef, null, [
+        { pageType: 'notes', pageId: undefined, displayText: "What is this place!?" },
+    ])}
 
     {createLinkGroup(page, selectedPageRef, "Linux", [
+        { pageType: 'notes', pageId: 'linux-rendering', displayText: "Rendering" },
         { pageType: 'notes', pageId: 'linux-device-input', displayText: "Device Input" },
+    ])}
+
+    {createLinkGroup(page, selectedPageRef, "OpenGL", [
+        { pageType: 'notes', pageId: 'opengl-overview', displayText: "Overview" },
+        { pageType: 'notes', pageId: 'opengl-buffer-objects', displayText: "Buffer Objects" },
+        { pageType: 'notes', pageId: 'opengl-shader-programs', displayText: "Shader Programs" },
+        { pageType: 'notes', pageId: 'opengl-complete-example', displayText: "Complete Example" },
     ])}
   </>);
 }

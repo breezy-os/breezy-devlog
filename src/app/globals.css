@@ -7,15 +7,41 @@
   --footer-height: 140px;
 
   /* Colors */
+  --logo-color: #000000;
   --background: #FDFDFB;
   --foreground: #000000;
-  --logo-color: #000000;
+  --foreground75: rgba(0,0,0,0.75);
+  --foreground50: rgba(0,0,0,0.5);
+  --foreground40: rgba(0,0,0,0.4);
+  --foreground20: rgba(0,0,0,0.2);
+  --foreground10: rgba(0,0,0,0.1);
+  --foreground05: rgba(0,0,0,0.05);
+
+  /* Not theme-specific: */
+  --red: hsla(0 80 50 / 1);
+  --red60: hsla(0 80 50 / 0.6);
+  --red10: hsla(0 80 50 / 0.1);
+  --green: hsla(120 50 50 / 1);
+  --green60: hsla(120 50 50 / 0.6);
+  --green10: hsla(120 50 50 / 0.1);
+  --blue: hsla(220 80 50 / 1);
+  --blue60: hsla(220 80 50 / 0.6);
+  --blue10: hsla(220 80 50 / 0.1);
+  --purple: hsla(280 50 50 / 1);
+  --purple60: hsla(280 50 50 / 0.6);
+  --purple10: hsla(280 50 50 / 0.1);
 }
 
 [data-theme="dark"] {
+  --logo-color: #FFFFFF;
   --background: #292A32;
   --foreground: #FFFFFF;
-  --logo-color: #FFFFFF;
+  --foreground75: rgba(255,255,255,0.75);
+  --foreground50: rgba(255,255,255,0.5);
+  --foreground40: rgba(255,255,255,0.4);
+  --foreground20: rgba(255,255,255,0.2);
+  --foreground10: rgba(255,255,255,0.1);
+  --foreground05: rgba(255,255,255,0.05);
 }
 
 
@@ -45,16 +71,50 @@ a {
   color: var(--foreground);
   text-decoration: none;
 }
-
-p {
-  opacity: 0.75;
+.content-area a:hover {
+  text-decoration: underline;
 }
 
+p,ul,ol {
+  color: var(--foreground75);
+  line-height: 20px;
+}
+
+ul,ol { margin-left: 30px; }
+li { margin: 10px 0; }
+ul.narrow>li, ol.narrow>li { margin: 0; }
+
+code {
+  background: var(--foreground10);
+  border-radius: 6px;
+  padding: 1px 4px;
+}
+pre {
+  background: var(--foreground05);
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.emph1 {
+  color: var(--foreground);
+  font-weight: bold;
+}
+.emph2 {
+  font-style: italic;
+}
+.emph3 {
+  font-style: italic;
+  color: var(--foreground40);
+}
+
+.content-area {
+  margin: 0 auto;
+  padding: 48px 48px;
+  max-width: 1000px;
+}
 .article-flex {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 0 auto;
-  padding: 48px 48px;
-  max-width: 1000px;
 }
