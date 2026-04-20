@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import './navigation.css';
+
 import NavDevlog from "./NavDevlog";
 import NavNotes from "./NavNotes";
 
@@ -128,7 +130,8 @@ export default function NavTopLevel({ theme, setTheme }: Props) {
       setGradients(grads);
     }
     updateGradients();
-    setInterval(() => updateGradients(), 500);
+    const interval = setInterval(() => updateGradients(), 500);
+    return () => clearInterval(interval);
   }, []);
 
   return (

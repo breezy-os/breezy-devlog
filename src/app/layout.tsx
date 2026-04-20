@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 import NavTopLevel from "@/components/layout/NavTopLevel";
 import Footer from "@/components/layout/Footer";
+import NavNarrow from "@/components/layout/NavNarrow";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -24,15 +25,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html data-theme={theme}>
       <title>Breezy Devlog</title>
-      <body style={{ display: 'flex' }}>
-        <NavTopLevel setTheme={(choice) => setPreferredTheme(choice)} theme={theme} />
+      <body>
+        <NavNarrow setTheme={(choice) => setPreferredTheme(choice)} theme={theme} />
+        <div className="site-layout">
+          <div className="normal-nav">
+            <NavTopLevel setTheme={(choice) => setPreferredTheme(choice)} theme={theme} />
+          </div>
 
-        <div style={{ minHeight: '100vh', flex: '1', overflowY: 'auto' }}>
-          <article style={{ minHeight: 'calc(100vh - var(--footer-height))'}} >
-            {children}
-          </article>
+          <div style={{ minHeight: '100vh', flex: '1', overflowY: 'auto' }}>
+            <article style={{ minHeight: 'calc(100vh - var(--footer-height))'}} >
+              {children}
+            </article>
 
-          <Footer theme={theme} />
+            <Footer theme={theme} />
+          </div>
         </div>
       </body>
     </html>

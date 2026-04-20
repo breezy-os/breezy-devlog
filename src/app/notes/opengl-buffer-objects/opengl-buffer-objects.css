@@ -1,0 +1,15 @@
+
+.opengl-buffer-objects {
+  .side-by-side {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  @media(max-width: 685px) {
+    .side-by-side {
+      flex-direction: column;
+    }
+  }
+}

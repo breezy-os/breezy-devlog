@@ -4,7 +4,6 @@
 /* -------------------- */
 
 .nav-top-level {
-  flex: 0 0 310px;
   height: 100vh;
   position: relative;
   display: flex;
