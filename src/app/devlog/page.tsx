@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: April 13, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: April 19, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">

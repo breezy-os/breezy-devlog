@@ -3,21 +3,9 @@ import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
 import ContextBox from "@/components/common/ContextBox";
 import Link from "next/link";
+import SvgTriangles from "./SvgTriangles";
+import SvgDots from "./SvgDots";
 
-const BASIC_DATA = `// VBO data
-float vertices[] = {
-    // x,     y
-     0.5f,  0.5f, // Vertex 0
-     0.5f, -0.5f, // Vertex 1
-    -0.5f, -0.5f, // Vertex 2
-    -0.5f,  0.5f, // Vertex 3
-};
-
-// EBO data
-unsigned int indices[] = {
-    0, 1, 3,  // Triangle 1 (red)
-    1, 2, 3,  // Triangle 2 (blue)
-};`;
 
 const HIGH_LEVEL_FLOW = `// 1) Create / activate the VAO
 
@@ -148,19 +136,23 @@ glDeleteBuffers(1, &ebo);`;
 export default function OpenglBufferObjects() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="OpenGL Buffer Objects" date="Last Update: April 12, 2026" />
+      <ArticleTitle title="OpenGL Buffer Objects" date="Last Update: April 18, 2026" />
       <p>With all the talk and importance of shaders, you'd think we'd start there, but nah: <span className="emph1">Buffer Objects</span>. There are different types of buffer objects; here are the ones I've come across and have needed to use:</p>
       <ul>
         <li><span className="emph1">Vertex Array Object (VAO)</span> - This one's a bit different than the rest, so I'm not sure I'd <span className="emph2">technically</span> consider it a buffer object, but it's definitely related enough to go here. A VAO stores a bunch of metadata about your <span className="emph2">active</span> buffer objects (ex: which ones are active, how their data is formatted, etc).</li>
         <li><span className="emph1">Vertex Buffer Object (VBO)</span> - This seems to be the most common/generic type. It stores information about your <span className="emph2">vertices</span>. This information is most often the x,y,z coordinate of each vertex, but it can include other things as well. Color and UV coordinates are also quite common.</li>
         <li><span className="emph1">Element Buffer Object (EBO)</span> - 3D models are made up of lots of triangles all joined together. Triangles that are joined together have overlapping vertices (picture a rectangle created by joining 2 triangles; 2 points overlap). If your VBO stores the 4 <span className="emph2">unique</span> vertices of that rectangle, then your EBO would define the two triangles by storing the indices of the vertices from the VBO for each triangle. So if your points are numbered around your rectangle like a 0-indexed clockface, your two triangles could be made up of the points: "0, 1, 3" and "1, 2, 3".</li>
       </ul>
-      <p>Since I'm sure that made complete sense the first time you read it, you probably don't need this picture:</p>
-      <CodeBlock code={BASIC_DATA} lang="c" />
-      <p>(TODO: Add picture to the right)</p>
-      <ContextBox type="info">
-        <p>To add some key information here, OpenGL uses a coordinate system ranging from -1 to 1 in both the left/right and bottom/top directions.</p>
-      </ContextBox>
+
+      <div style={{ display: 'flex', gap: '40px', justifyContent: 'space-around', margin: '0 40px', padding: '20px', background: 'var(--foreground05)', borderRadius: '12px' }}>
+        <div className="article-flex" style={{ flex: '1' }}>
+          <p>Since I'm sure that made complete sense the first time you read it, you probably don't need this picture.</p>
+          <ContextBox type="info">
+            <p>To add some key information here, OpenGL uses a coordinate system ranging from -1 to 1 in both the left/right and bottom/top directions.</p>
+          </ContextBox>
+        </div>
+        <div style={{ flex: '0 0 201px' }}><SvgTriangles /></div>
+      </div>
 
       <h2>Typical, high-level flow</h2>
       <p>The general flow for working with these objects is to (1) create the object, (2) activate the object, (3) execute a series of commands to operate on the active object. By creating and activating a VAO before calling those functions, everything you did gets saved to the VAO. Later on when it becomes time to render, you just need to load your VAO and render -- all the VBOs/EBOs/etc are remembered.</p>
@@ -178,8 +170,10 @@ export default function OpenglBufferObjects() {
 
       <h3>2b) Store the VBO data</h3>
       <p>We have our VBO, but it doesn't have any data. Let's see ... what do we want to store... Position would be good. We could do either 2D (x,y) or 3D (x,y,z), but I'll keep it simple with 2D. For extra fanciness, we'll also store the vertex's color as RGB values between 0 and 1. That entire definition might look something like this:</p>
-      <CodeBlock code={STEP_2b_CODE} lang="c" />
-      <p>(TODO: Add picture of vertices)</p>
+      <div style={{ display: 'flex', gap: '40px', alignItems: 'center', justifyContent: 'space-around' }}>
+        <div style={{ flex: '1 1', minWidth: '0px' }}><CodeBlock code={STEP_2b_CODE} lang="c" /></div>
+        <div style={{ flex: '0' }}><SvgDots /></div>
+      </div>
       <p>And then to store it on our <span className="emph1">active</span> VBO, we execute this command. NOTE that nowhere do we specify our <code>vbo</code> variable from earlier -- the <code>glBufferData</code> function operates on whatever the last bound VBO was.</p>
       <CodeBlock code={'glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);'} lang="c" />
       <ul>
@@ -193,11 +187,15 @@ export default function OpenglBufferObjects() {
 
       <h3>3b) Store the EBO data</h3>
       <p>As a refresher, we defined this data in our VBO section as our vertices:</p>
-      <CodeBlock code={STEP_2b_CODE} lang="c" />
-      <p>(TODO: Show grid to the right with the vertices)</p>
+      <div style={{ display: 'flex', gap: '40px', alignItems: 'center', justifyContent: 'space-around' }}>
+        <div style={{ flex: '1 1', minWidth: '0px' }}><CodeBlock code={STEP_2b_CODE} lang="c" /></div>
+        <div style={{ flex: '0' }}><SvgDots /></div>
+      </div>
       <p>If we wanted to define 2 triangles in our EBO that would specify a quadrilateral (affectionately known as a <span className="emph2">"quad"</span>), we could define it like so:</p>
-      <CodeBlock code={STEP_3b_CODE} lang="c" />
-      <p>(TODO: Show grid to the right with the vertices and triangles)</p>
+      <div style={{ display: 'flex', gap: '40px', alignItems: 'center', justifyContent: 'space-around' }}>
+        <div style={{ flex: '1 1', minWidth: '0px' }}><CodeBlock code={STEP_3b_CODE} lang="c" /></div>
+        <div style={{ flex: '0' }}><SvgTriangles /></div>
+      </div>
       <p>That's our EBO data. Simple, right? It gets even easier. Storing the data in our EBO is basically the same as the VBO function, except we use <code>GL_ELEMENT_ARRAY_BUFFER</code> as our buffer type rather than <code>GL_ARRAY_BUFFER</code>:</p>
       <CodeBlock code={'glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);'} lang="c" />
 

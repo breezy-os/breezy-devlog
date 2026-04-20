@@ -19,8 +19,11 @@ type Props = {
 function randomColor() {
   return Math.floor(Math.random() * 360);
 }
-function randomPercent() {
-  return Math.floor(Math.random() * 100);
+function randomPercent(index?: number, itemCount?: number) {
+  const range = (index != undefined && itemCount != undefined)
+    ? { min: (index/itemCount), max: (index+1)/itemCount }
+    : { min: 0, max: 1 };
+  return Math.floor(100 * (range.min + (Math.random()*(range.max - range.min))));
 }
 
 export default function NavTopLevel({ theme, setTheme }: Props) {
@@ -106,20 +109,21 @@ export default function NavTopLevel({ theme, setTheme }: Props) {
       (baseColor + 200) % 360,
       (baseColor + 300) % 360,
     ].map((hue, i, a) => ({
-      x: randomPercent(),  y: (100*i/a.length) + Math.floor(100*(Math.random()/(a.length))),  // Current x/y coordinates
-      tx: randomPercent(), ty: randomPercent(), // Target x/y coordinates
-      hue,
+      x: randomPercent(),  y: randomPercent(i, a.length),  // Current x/y coordinates
+      tx: randomPercent(), ty: randomPercent(),       // Target x/y coordinates
+      i, hue,
     }));
     const stepTo = (v: number, tv: number) => v + ((tv > v)
         ?  Math.min(tv - v, 0.2)
         : -Math.min(v - tv, 0.2));
     const updateGradients = () => {
-      grads = grads.map(g => ({
+      grads = grads.map((g, _, a) => ({
         x: stepTo(g.x, g.tx),
         y: stepTo(g.y, g.ty),
         tx: Math.abs(g.x - g.tx) > 1 ? g.tx : randomPercent(),
-        ty: Math.abs(g.y - g.ty) > 1 ? g.ty : randomPercent(),
-        hue: g.hue,
+        ty: Math.abs(g.y - g.ty) > 1 ? g.ty : randomPercent(g.i, a.length),
+        i: g.i,
+        hue: (g.hue + 2) % 360,
       }));
       setGradients(grads);
     }
