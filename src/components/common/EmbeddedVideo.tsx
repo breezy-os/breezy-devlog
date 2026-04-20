@@ -59,12 +59,12 @@ export default function EmbeddedVideo({ videoSlug }: Props) {
   }, []);
 
   return (
-    <div style={{ margin: '40px auto', padding: '5px', position: 'relative' }}>
+    <div style={{ padding: '5px', margin: '40px auto', width: '100%', maxWidth: '560px', aspectRatio: '560 / 315', position: 'relative' }}>
       <div style={{ position: 'absolute', margin: '-5px', borderRadius: '12px', width: '100%', height: '100%', background: backgroundString, filter: 'blur(8px)' }} />
       <iframe
         style={{ display: 'block', background: 'black', boxShadow: '0px 4px 8px 0px rgba(0,0,0,0.5)', borderRadius: '12px', opacity: 1, position: 'relative', zIndex: 2 }}
-        width="560"
-        height="315"
+        width="100%"
+        height="100%"
         src={"https://www.youtube-nocookie.com/embed/" + videoSlug}
         title="YouTube video player"
         frameBorder="0"

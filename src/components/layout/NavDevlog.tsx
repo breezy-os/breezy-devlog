@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-import './navigation.css';
 import { createLinkGroup } from "./NavUtils";
 
 type Props = {

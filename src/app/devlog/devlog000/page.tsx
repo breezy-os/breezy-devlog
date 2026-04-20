@@ -36,19 +36,24 @@ export default function Devlog000() {
       <ContextBox type="note">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <SvgGithub w={18} h={18} /> <a href="https://github.com/breezy-os">github.com/breezy-os</a>
+            <div style={{ flex: '0' }}><SvgGithub w={18} h={18} /></div>
+            <a href="https://github.com/breezy-os">github.com/breezy-os</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <SvgYoutube w={18} h={18} /> <a href="https://youtube.com/@breezyosdev">youtube.com/@breezyosdev</a>
+            <div style={{ flex: '0' }}><SvgYoutube w={18} h={18} /></div>
+            <a href="https://youtube.com/@breezyosdev">youtube.com/@breezyosdev</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <SvgOdysee w={18} h={18} /> <a href="https://odysee.com/@breezyosdev">odysee.com/@breezyosdev</a>
+            <div style={{ flex: '0' }}><SvgOdysee w={18} h={18} /></div>
+            <a href="https://odysee.com/@breezyosdev">odysee.com/@breezyosdev</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <SvgX w={18} h={18} /> <a href="https://x.com/benzenittini">@benzenittini</a>
+            <div style={{ flex: '0' }}><SvgX w={18} h={18} /></div>
+            <a href="https://x.com/benzenittini">@benzenittini</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <SvgBsky w={18} h={18} /> <a href="https://bsky.app/profile/benzenittini.bsky.social">@benzenittini.bsky.social</a>
+            <div style={{ flex: '0' }}><SvgBsky w={18} h={18} /></div>
+            <a href="https://bsky.app/profile/benzenittini.bsky.social">@benzenittini.bsky.social</a>
           </div>
         </div>
       </ContextBox>
