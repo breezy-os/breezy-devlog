@@ -7,13 +7,14 @@ import SvgGithub from "@/components/ui/svgs/SvgGithub";
 import SvgX from "@/components/ui/svgs/SvgX";
 import SvgBsky from "@/components/ui/svgs/SvgBsky";
 import EmbeddedVideo from "@/components/common/EmbeddedVideo";
+import { em } from "@/app/utils";
 
 
 export default function Devlog000() {
   return (
     <div className="content-area article-flex">
       <ArticleTitle title="What's the big idea?" date="April 19, 2026" />
-      <p><span className="emph1">Breezy</span> is a build-in-public, open-source project with the goal of <span className="emph1">creating an ecosystem of software and devices</span> that make self-hosting not only dead-simple, but also a better experience than the free, cloud options. If that interests you, read-on and consider following the accompanying video series 🙂</p>
+      <p><span className="emph1">Breezy</span> is a build-in-public, open-source project with the goal of <span className="emph1">creating an ecosystem of software and devices</span> that make self-hosting not only dead-simple, but also a better experience than the free, cloud options. If that interests you, read-on and consider following the accompanying video series {em('🙂')}</p>
       <EmbeddedVideo videoSlug="uqdYgXSDgd0" />
 
       <h2>Clouds ☁️</h2>
@@ -34,25 +35,25 @@ export default function Devlog000() {
       <h2>How to follow along</h2>
       <p>If the project sounds interesting to you, here are a few links that you might find interesting:</p>
       <ContextBox type="note">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0' }}><SvgGithub w={18} h={18} /></div>
+            <div style={{ flex: '0', lineHeight: 0 }}><SvgGithub w={18} h={18} /></div>
             <a href="https://github.com/breezy-os">github.com/breezy-os</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0' }}><SvgYoutube w={18} h={18} /></div>
+            <div style={{ flex: '0', lineHeight: 0 }}><SvgYoutube w={18} h={18} /></div>
             <a href="https://youtube.com/@breezyosdev">youtube.com/@breezyosdev</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0' }}><SvgOdysee w={18} h={18} /></div>
+            <div style={{ flex: '0', lineHeight: 0 }}><SvgOdysee w={18} h={18} /></div>
             <a href="https://odysee.com/@breezyosdev">odysee.com/@breezyosdev</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0' }}><SvgX w={18} h={18} /></div>
+            <div style={{ flex: '0', lineHeight: 0 }}><SvgX w={18} h={18} /></div>
             <a href="https://x.com/benzenittini">@benzenittini</a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0' }}><SvgBsky w={18} h={18} /></div>
+            <div style={{ flex: '0', lineHeight: 0 }}><SvgBsky w={18} h={18} /></div>
             <a href="https://bsky.app/profile/benzenittini.bsky.social">@benzenittini.bsky.social</a>
           </div>
         </div>
