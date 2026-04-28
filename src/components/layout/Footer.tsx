@@ -1,4 +1,5 @@
 
+import { em } from '@/app/utils';
 import './footer.css';
 
 type Props = {
@@ -16,7 +17,7 @@ export default function Footer({ theme }: Props) {
       boxShadow: `inset 0 4px 4px rgba(0,0,0,${theme === 'light' ? '0.15' : '0.25'})`,
     }}>
       <div className="footer-contents">
-        <p>A huge <span style={{ fontWeight: 'bold' }}>THANK YOU</span> to all supporters of the project 🙏</p>
+        <p>A huge <span style={{ fontWeight: 'bold' }}>THANK YOU</span> to all supporters of the project {em('🙏')}</p>
         <p>If you spot an error on the page, or if you have any questions or feedback, please email me at breezy@zenittini.dev</p>
         <p>Copyright {new Date().getFullYear()} by Ben Zenittini</p>
       </div>

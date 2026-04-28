@@ -27,6 +27,8 @@ export default function NavNotes({ pageChanged }: Props) {
     ])}
 
     {createLinkGroup(page, selectedPageRef, "Linux", [
+        { pageType: 'notes', pageId: 'linux-building-c-code', displayText: "Building C Code" },
+        { pageType: 'notes', pageId: 'linux-c-testing-and-analysis', displayText: "C Testing and Analysis" },
         { pageType: 'notes', pageId: 'linux-rendering', displayText: "Rendering" },
         { pageType: 'notes', pageId: 'linux-device-input', displayText: "Device Input" },
     ])}

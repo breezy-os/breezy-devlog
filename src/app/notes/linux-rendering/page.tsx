@@ -1,4 +1,5 @@
 
+import { em } from "@/app/utils";
 import ArticleTitle from "@/components/common/ArticleTitle"
 import ContextBox from "@/components/common/ContextBox";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function LinuxRendering() {
       <p>When I first started this project, I had no idea there were so many technologies and pieces involved with rendering even a simple rectangle on the screen. I'll do my best to break down what each piece does down below, and some info for using it. Keep in mind this is only a very high-level overview for each, as they could all use their own entire website explaining their details. I might make deeper dives into these technologies if I have a need to dig more into them, but for now, this'll do.</p>
 
       <h2>UI Library</h2>
-      <p>An application is written using a UI library such as GTK or Qt. If you're familiar with the linux ecosystem, you might've heard of these before; someone would use one of these libraries to create their ✨ dream app ✨. These libraries know how to speak the protocol of the <span className="emph1">compositor</span> (or <span className="emph1">windowing system</span>), which is what draws your application windows in the correct location on the screen. Cool, let's go a layer deeper.</p>
+      <p>An application is written using a UI library such as GTK or Qt. If you're familiar with the linux ecosystem, you might've heard of these before; someone would use one of these libraries to create their {em('✨')} dream app {em('✨')}. These libraries know how to speak the protocol of the <span className="emph1">compositor</span> (or <span className="emph1">windowing system</span>), which is what draws your application windows in the correct location on the screen. Cool, let's go a layer deeper.</p>
 
       <h2>Compositor</h2>
       <p>The <span className="emph2">compositor</span> does as the name implies - it "composits" multiple images onto the screen, where each image would be a user application. A <span className="emph2">windowing system</span> manages all the windows you have open, determines where to draw them, and how to send keyboard/mouse inputs to them. ...wait, those sound like they both do similar things... And to an extent, they do. There are two common protocols / pieces of software that perform this role on linux: <span className="emph1">X11</span> and <span className="emph1">Wayland</span>.</p>

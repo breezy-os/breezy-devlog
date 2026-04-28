@@ -1,4 +1,5 @@
 
+import { em } from "@/app/utils";
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
 import ContextBox from "@/components/common/ContextBox";
@@ -239,7 +240,7 @@ export default function OpenglShaderPrograms() {
       <ContextBox type="quote">
         <p className="emph3">(hah, "sea land".)</p>
       </ContextBox>
-      <p>We have 2 hands. In one, we've defined our VAO containing all the things we want to draw. In the other, we have our vertex and fragment shader programs that do the rendering. ...Now how to we slap them together? 👏</p>
+      <p>We have 2 hands. In one, we've defined our VAO containing all the things we want to draw. In the other, we have our vertex and fragment shader programs that do the rendering. ...Now how to we slap them together? {em('👏')}</p>
       <p>In usual fashion, here's the "high-level" of what we need to do in our C program:</p>
       <ol className="narrow">
         <li>Load and compile our shaders <span className="emph3">("hey, that's the thing some video games say when they start up!")</span></li>
@@ -279,7 +280,7 @@ export default function OpenglShaderPrograms() {
           <ul className="narrow">
             <li><a href="https://wikis.khronos.org/opengl/Data_Type_(GLSL)">Khronos OpenGL data type wiki</a></li>
             <li><a href="https://docs.gl/">OpenGL API</a></li>
-            <li><a href="https://registry.khronos.org/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.pdf">OpenGL ES Spec</a> 😴</li>
+            <li><a href="https://registry.khronos.org/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.pdf">OpenGL ES Spec</a> {em('😴')}</li>
           </ul>
         </div>
       </ContextBox>
