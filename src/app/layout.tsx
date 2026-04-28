@@ -33,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </div>
 
           <div style={{ minHeight: '100vh', flex: '1', overflowY: 'auto' }}>
-            <article style={{ minHeight: 'calc(100vh - var(--footer-height))'}} >
+            <article style={{ minHeight: 'calc(100vh - var(--footer-height))' }} >
               {children}
             </article>
 

@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: April 19, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: April 27, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">
@@ -14,9 +14,9 @@ export default function Devlog() {
       </ul>
       <p>Still better than nothing though, right? <span className="emph2">...right?</span></p>
 
-      <ProgressTracker title="Phase 1: Crude Compositor" progress={2} items={[
-        { status: 'inprogress', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
-        { status: 'todo', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
+      <ProgressTracker title="Phase 1: Crude Compositor" progress={8} items={[
+        { status: 'done', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
+        { status: 'inprogress', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
         { status: 'todo', name: "Wayland / input setup", description: "Set up Wayland globals, wire into display stack, add hooks for keyboard hotkeys." },
         { status: 'todo', name: "Connecting a Wayland client", description: "Create a Wayland client, display its connection status on-screen." },
         { status: 'todo', name: "Displaying a Wayland client", description: "Display a Wayland client's static buffer." },
