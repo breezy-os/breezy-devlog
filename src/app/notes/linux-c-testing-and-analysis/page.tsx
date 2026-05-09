@@ -30,7 +30,7 @@ int main(void) {
       `.trim()} />
 
       <p>All of your test functions have a series of assertions they can call, which includes:</p>
-      <ul className="narrow">
+      <ul>
         <li><code>TEST_ASSERT_TRUE(condition)</code></li>
         <li><code>TEST_ASSERT_FALSE(condition)</code></li>
         <li><code>TEST_ASSERT_EQUAL_*(expected, actual)</code> -- replace the <code>*</code> with common data types, including INT, INT8, UINT, ...</li>
