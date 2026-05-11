@@ -21,8 +21,7 @@ export default function Devlog002() {
       <ContextBox type="note">
         <div className="article-flex">
           <h2>Related Links</h2>
-          {/* <p>Here's the PR for these changes: <a href="https://github.com/breezy-os/breezy/pull/2">Github PR #2</a></p> */}
-          <p>The PR link for these changes is coming soon! (...I have some cleanup to do first...)</p>
+          <p>Here's the PR for these changes: <a href="https://github.com/breezy-os/breezy/pull/2">Github PR #2</a></p>
           <p>There's also a note page on <Link href={`/notes/linux-rendering`}>"Linux Rendering"</Link> that talks a bit more about this stuff.</p>
         </div>
       </ContextBox>
