@@ -31,6 +31,7 @@ export default function NavDevlog({ pageChanged }: Props) {
     {createLinkGroup(page, selectedPageRef, "Phase 1", [
         { pageType: 'devlog', pageId: 'devlog001', displayText: "Devlog 1: Project setup" },
         { pageType: 'devlog', pageId: 'devlog002', displayText: "Devlog 2: Displaying something" },
+        { pageType: 'devlog', pageId: 'devlog003', displayText: "Devlog 3: Keyboard Input" },
     ])}
   </>);
 }
