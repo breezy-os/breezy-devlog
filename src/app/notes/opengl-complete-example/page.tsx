@@ -164,7 +164,7 @@ int main()
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(1, &ebo);
-    glDeleteProgram(1, &shader_program);
+    glDeleteProgram(shader_program);
 
     return 0;
 }
@@ -212,7 +212,7 @@ static GLuint compile_shader(GLenum type, const char *code)
 export default function OpenglCompleteExample() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="OpenGL Complete Example" date="Last Update: April 12, 2026" />
+      <ArticleTitle title="OpenGL Complete Example" date="Last Update: May 25, 2026" />
       <p>Here's a complete code example, built by combining the snippets from the following pages:</p>
       <ol className="narrow">
         <li><Link href={`/notes/opengl-overview`}>OpenGL &gt; Overview</Link></li>
@@ -220,6 +220,28 @@ export default function OpenglCompleteExample() {
         <li><Link href={`/notes/opengl-shader-programs`}>OpenGL &gt; Shader Programs</Link></li>
       </ol>
       <CodeBlock code={CODE} lang="c" />
+      <CodeBlock code={`
+#version 320 es
+
+layout(location = 0) in highp vec2 a_position;
+layout(location = 1) in lowp vec3 a_color;
+out lowp vec3 v_color;
+
+void main() {
+    gl_Position = vec4(a_position.x, a_position.y, 0.0, 1.0); // x, y, z, and w.
+    v_color = a_color;
+}
+      `.trim()} lang="glsl" />
+      <CodeBlock code={`
+#version 320 es
+
+in lowp vec3 v_color;
+out lowp vec3 fragColor;
+
+void main() {
+    fragColor = v_color;
+}
+      `.trim()} lang="glsl" />
     </div>
   );
 }

@@ -105,6 +105,13 @@ pre {
   overflow-x: auto;
 }
 
+.pic-background {
+  background: var(--foreground05);
+  border-radius: 12px;
+  padding: 20px 40px;
+  margin: 0 auto;
+}
+
 .emph1 {
   color: var(--foreground);
   font-weight: bold;

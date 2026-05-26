@@ -39,5 +39,9 @@ export default function NavNotes({ pageChanged }: Props) {
         { pageType: 'notes', pageId: 'opengl-shader-programs', displayText: "Shader Programs" },
         { pageType: 'notes', pageId: 'opengl-complete-example', displayText: "Complete Example" },
     ])}
+
+    {createLinkGroup(page, selectedPageRef, "Wayland", [
+        { pageType: 'notes', pageId: 'wayland-overview', displayText: "Overview" },
+    ])}
   </>);
 }
