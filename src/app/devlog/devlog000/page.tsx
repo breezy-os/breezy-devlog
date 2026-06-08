@@ -52,10 +52,6 @@ export default function Devlog000() {
             <div style={{ flex: '0', lineHeight: 0 }}><SvgX w={18} h={18} /></div>
             <a href="https://x.com/benzenittini">@benzenittini</a>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ flex: '0', lineHeight: 0 }}><SvgBsky w={18} h={18} /></div>
-            <a href="https://bsky.app/profile/benzenittini.bsky.social">@benzenittini.bsky.social</a>
-          </div>
         </div>
       </ContextBox>
     </div>

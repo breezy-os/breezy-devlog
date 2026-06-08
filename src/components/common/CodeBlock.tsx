@@ -11,16 +11,18 @@ import shell from 'highlight.js/lib/languages/shell';
 import glsl from 'highlight.js/lib/languages/glsl';
 import python from 'highlight.js/lib/languages/python';
 import xml from 'highlight.js/lib/languages/xml';
+import diff from 'highlight.js/lib/languages/diff';
 hljs.registerLanguage('c', c);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('glsl', glsl);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('diff', diff);
 
 type Props = {
   code: string;
-  lang: 'c' | 'bash' | 'shell' | 'glsl' | 'python' | 'xml';
+  lang: 'c' | 'bash' | 'shell' | 'glsl' | 'python' | 'xml' | 'diff';
 };
 
 export default function CodeBlock({ code, lang }: Props) {
