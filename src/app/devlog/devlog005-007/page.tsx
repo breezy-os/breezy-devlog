@@ -184,12 +184,178 @@ exit
       <HorizontalRule />
 
       <h2>Part 2: Deploying a Web App</h2>
-      <p>Coming soon {em('👀')}</p>
+      <p>In devlog 6, we deploy an example personal webapp to our prepared pi server, and run it as a <span className="emph1">runit</span> service. The web app we'll be using is a simple agenda app serving as an experiment for something to integrate into Breezy one day. If you're following along, I've captured the main commands used throughout the video below.</p>
+      <EmbeddedVideo videoSlug="rLBXmI4OK50" />
+
+      <p>To start off, I'll assume you have an active terminal session with your pi - whether that be via ssh or a direct connection. Given that, to get the agenda web app set up, you'll need to:</p>
+
+      <ol>
+        <li>
+          <div className="article-flex">
+            <p>Install some prerequisites (<code>git</code>, <code>curl</code>, and <code>nvm</code>):</p>
+            <CodeBlock lang="bash" code={`
+sudo xbps-install -Su git curl
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
+
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>To activate <span className="emph1">nvm</span>, you'll need to exit out of your active terminal session and reconnect.</p>
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>In your new session, you should install <code>node</code> and <code>libatomic</code> (which is needed by node):</p>
+            <CodeBlock lang="bash" code={`
+# Install node
+nvm install node
+sudo xbps-install -Su libatomic
+
+# Confirm node/npm are installed
+node --version
+npm --version
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Then prep the git directory for our agenda app:</p>
+            <CodeBlock lang="bash" code={`
+mkdir ~/git
+cd ~/git
+git clone https://github.com/breezy-os/breezy-agenda.git
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>...and build and run the app:</p>
+            <CodeBlock lang="bash" code={`
+# Build the frontend
+cd ~/git/breezy-agenda/frontend
+npm install
+npm run build
+
+# Build (and run) the backend
+cd ~/git/breezy-agenda/backend
+npm install
+node ./index.ts
+
+# Open browser to <ip-address>:3000 to confirm it's working
+# ...then, Ctrl+C from terminal to stop the process.
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Now to configure that app as a runit service, first you'll need to note the directory we run the webapp from, and the full path to the node installation. You can get those by running:</p>
+            <CodeBlock lang="bash" code={`
+# Current directory (where we ran the above "node" command from)
+pwd
+
+# Full path to the node executable
+which node
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>To keep those values on-screen / visible, I open a second terminal session to my pi to run the below commands from. As long as you know the values, it's up to you how you keep them handy.</p>
+            <p>Create the "breezy-agenda" service config directory:</p>
+            <CodeBlock lang="bash" code={`
+sudo mkdir -p /etc/sv/breezy-agenda
+            `.trim()} />
+
+            <p>Create and edit the <code>/etc/sv/breezy-agenda/run</code> file, which is the main "run" file for your service. Give it the following contents, setting the three fields between the angled brackets <code>&lt;...&gt;</code> as appropriate:</p>
+            <CodeBlock lang="bash" code={`
+#!/bin/sh
+
+exec chpst -u <username> /usr/bin/env -C <pwd-output> <which-node-output> ./index.ts
+
+# For example:
+#   exec chpst -u ben /usr/bin/env -C /home/ben/git/breezy-agenda/backend /home/ben/.nvm/versions/node/v26.3.0/bin/node ./index.ts
+            `.trim()} />
+
+            <p>Make it executable, and then activate the service:</p>
+            <CodeBlock lang="bash" code={`
+sudo chmod +x /etc/sv/breezy-agenda/run
+sudo ln -s /etc/sv/breezy-agenda /var/service/
+
+# Confirm the service is running:
+sudo sv status breezy-agenda
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Access the web app in your browser (same IP and port as before) then create a new user account. Delaying this will cause the (upcoming) backup script to fail since the data files wouldn't exist.</p>
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Install <code>snooze</code>, our scheduling service, then configure it to run every day by activating that service.</p>
+            <CodeBlock lang="bash" code={`
+sudo xbps-install -Su snooze
+sudo ln -s /etc/sv/snooze-daily /var/service/
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Create and edit <code>/etc/cron.daily/back-up-agenda</code> with the following contents, updating the path in the <code>cp</code> command as appropriate:</p>
+            <CodeBlock lang="bash" code={`
+#!/bin/sh
+
+BACKUP_DIR="/root/agenda-backups/$(date +%Y%m%d)"
+
+# Copy the web app's data files into a datestamped directory.
+mkdir -p $BACKUP_DIR
+cp /home/ben/git/breezy-agenda/backend/data/* $BACKUP_DIR
+
+# Delete any backups older than 30 days.
+find /root/agenda-backups -maxdepth 1 -mindepth 1 -type d -mtime +30 -exec rm -rf {} +
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Make the backup script executable, and verify it works:</p>
+            <CodeBlock lang="bash" code={`
+sudo chmod +x /etc/cron.daily/back-up-agenda
+
+# Switch to the root user
+sudo su -
+
+# Try to manually execute the backup script
+/etc/cron.daily/back-up-agenda
+
+# And then verify there are results backed up
+ls -al /root/agenda-backups/*
+            `.trim()} />
+          </div>
+        </li>
+      </ol>
+
+      <ContextBox type="info">
+        <p>For tips on how to use your new web app, check out its <a href="https://github.com/breezy-os/breezy-agenda">Github repo's README</a>.</p>
+      </ContextBox>
 
       <HorizontalRule />
 
       <h2>Part 3: Configuring a VPN</h2>
-      <p>Also coming soon {em('🫣')}</p>
+      <p>Coming soon! {em('🕺')}</p>
 
       <HorizontalRule />
 
