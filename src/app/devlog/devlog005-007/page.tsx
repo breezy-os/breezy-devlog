@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Devlog005() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Self-Hosting Mini Series" date="June 7, 2026" />
+      <ArticleTitle title="Self-Hosting Mini Series" date="June 12, 2026" />
 
       <p>This devlog is different than most. We're taking a short break from the main Breezy project for this miniseries on self hosting. Part one sets up Void Linux on a Raspberry Pi, configures our wi-fi, and sets up a user account with passwordless ssh access. Part two deploys an example web app -- in this case, it's an agenda app I made as a proof of concept for a future project. Then part 3 will set up a VPN that secures our pi and webapp from the outside world while still permitting ourselves access.</p>
       <p>Each of the three parts will be released within a couple days of the prior, and this page will be updated with additional info as each part is released.</p>
@@ -355,7 +355,134 @@ ls -al /root/agenda-backups/*
       <HorizontalRule />
 
       <h2>Part 3: Configuring a VPN</h2>
-      <p>Coming soon! {em('🕺')}</p>
+      <p>Devlog 7 is the epic conclusion to this sidequest of wonderment. We deploy our very own, personal VPN server which restricts external access to both our pi and web app to just ourselves. If you're following along, the main commands used throughout the video are captured below.</p>
+      <EmbeddedVideo videoSlug="H1CtQkoZpfE" />
+
+      <ContextBox type="info">
+        <div className="article-flex">
+          <p>Network configurations tend to be a bit finnicky and can differ from one household to the next. If you run into any hiccups with your router or network configuration that you think could be helpful for other readers to know about, please do send your tips my way and I can include them on this page {em('👍')}</p>
+          <p>You can send an email to: breezy@zenittini.dev</p>
+        </div>
+      </ContextBox>
+
+      <p>To start off, I'd recommend opening two active terminal sessions with your pi, and get any devices ready that you'll want to connect to your pi remotely. Then, step through the following:</p>
+
+      <ol>
+        <li>
+          <div className="article-flex">
+            <p>From your pi server, start off by installing the WireGuard VPN:</p>
+            <CodeBlock lang="bash" code={`
+sudo xbps-install -Su wireguard
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Then, you'll want to generate a key pair for your pi server, and a key pair for each client you want to connect to it.</p>
+            <CodeBlock lang="bash" code={`
+# For convenience, I'll put all my key files in this directory.
+mkdir ~/wireguard-keys
+cd ~/wireguard-keys
+
+# Generate a key pair for the pi server
+wg genkey | tee ./pi-server.priv | wg pubkey > ./pi-server.pub
+
+# Generate a key pair for *each* client you want to connect.
+wg genkey | tee ./client1.priv | wg pubkey > ./client1.pub
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>I'd recommend switching to a different terminal session connected to your pi for the following steps. That way, you still have access to the key files you just generated.</p>
+            <p>Edit <code>/etc/wireguard/wg0.conf</code> with <code>sudo</code>, and adapt the following contents to your needs. Repeat the <code>[Peer]</code> section for each client you want to connect, making sure to give each a different IP address that's part of your WireGuard subnet.</p>
+            <CodeBlock lang="ini" code={`
+[Interface]
+PrivateKey = <contents of pi-server.priv>
+Address = 10.0.1.1/24
+ListenPort = 51820
+
+[Peer]
+PublicKey = <contents of client1.pub>
+AllowedIPs = 10.0.1.2/32
+            `.trim()} />
+
+            <p>Start the WireGuard service, and ensure it's running:</p>
+            <CodeBlock lang="bash" code={`
+# Enable and start the service
+sudo ln -s /etc/sv/wireguard /var/service/
+
+# Check its status
+sudo sv status wireguard
+sudo wg show wg0
+            `.trim()} />
+          </div>
+        </li>
+
+        <div className="article-flex">
+          <HorizontalRule />
+          <p>We're finished with our pi server for now, and moving onto our clients. For each client you want to connect, you'll perform the following steps <span className="emph1">from the client machine</span>.</p>
+          <HorizontalRule />
+        </div>
+
+        <li>
+          <div className="article-flex">
+            <p><span className="emph1">In each of your clients</span>, create a configuration file that tells your WireGuard client how to connect to your pi server. You can put the file wherever you want, and name it however you'd like. Adapt the following contents to fit your needs, and make sure you assign each the same IP address that you configured for it on the pi server:</p>
+            <CodeBlock lang="ini" code={`
+[Interface]
+PrivateKey = <contents of client1.priv>
+Address = 10.0.1.2/32
+
+[Peer]
+PublicKey = <contents of pi-server.pub>
+AllowedIPs = <the internal IP address of your pi>/32
+Endpoint = <your external IP address>:51820
+PersistentKeepalive = 25
+            `.trim()} />
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Now download the WireGuard client application from <a href="https://www.wireguard.com/install/">WireGuard's website</a>. Import the file you just created as a "tunnel".</p>
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Once that's done, you'll need to set up port forwarding in your router. These steps will differ based on your router, but you'll want to log in to your router <span className="emph2">somehow</span>, poke around for something that says "port forwarding" (oftentimes in your "Advanced Settings"), and set up a port forward with the following configuration:</p>
+            <ul className="narrow">
+              <li><span className="emph1">Device:</span> Your Raspberry Pi</li>
+              <li><span className="emph1">Port Number:</span> 51820</li>
+              <li><span className="emph1">Packet Type:</span> UDP</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>Once that's all set up, you should be ready to go! You can test your setup by connecting your laptop to a different, public network (such as your phone's hotspot), turning on your VPN, and verifying you can access your pi using its internal IP address.</p>
+            <ContextBox type="info">
+              <div className="article-flex">
+                <p>Small tip for using your hotspot: Also make sure to turn off your phone's wi-fi. If it's still connected to your home wi-fi, then it'll mess up this test.</p>
+              </div>
+            </ContextBox>
+          </div>
+        </li>
+
+        <li>
+          <div className="article-flex">
+            <p>As a final cleanup step, you can delete the key pair files we generated earlier (<code>pi-server.pub</code>, <code>pi-server.priv</code>, <code>client1.pub</code>, etc). Those are no longer needed, so best to make sure they don't fall into the wrong hands.</p>
+            <CodeBlock lang="ini" code={`
+# From your pi
+cd ~
+rm -rf ~/wireguard-keys
+            `.trim()} />
+          </div>
+        </li>
+      </ol>
 
       <HorizontalRule />
 
