@@ -34,6 +34,7 @@ export default function NavDevlog({ pageChanged }: Props) {
         { pageType: 'devlog', pageId: 'devlog003', displayText: "Devlog 3: Keyboard Input" },
         { pageType: 'devlog', pageId: 'devlog004', displayText: "Devlog 4: Wayland Setup" },
         { pageType: 'devlog', pageId: 'devlog005-007', displayText: "Devlog 5-7: Self-Hosting Series" },
+        { pageType: 'devlog', pageId: 'devlog008', displayText: "Devlog 8: Static Surfaces" },
     ])}
   </>);
 }

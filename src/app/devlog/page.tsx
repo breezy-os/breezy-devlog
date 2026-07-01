@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: May 25, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: June 30, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">
@@ -14,7 +14,7 @@ export default function Devlog() {
       </ul>
       <p>Still better than nothing though, right? <span className="emph2">...right?</span></p>
 
-      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*5/13} items={[
+      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*5.5/13} items={[
         { status: 'done', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
         { status: 'done', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
         { status: 'done', name: "Keyboard input", description: "Add hooks for keyboard hotkeys." },
