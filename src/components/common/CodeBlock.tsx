@@ -13,6 +13,7 @@ import python from 'highlight.js/lib/languages/python';
 import xml from 'highlight.js/lib/languages/xml';
 import diff from 'highlight.js/lib/languages/diff';
 import ini from 'highlight.js/lib/languages/ini';
+import markdown from 'highlight.js/lib/languages/markdown';
 hljs.registerLanguage('c', c);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('shell', shell);
@@ -21,10 +22,11 @@ hljs.registerLanguage('python', python);
 hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('diff', diff);
 hljs.registerLanguage('ini', ini);
+hljs.registerLanguage('markdown', markdown);
 
 type Props = {
   code: string;
-  lang: 'c' | 'bash' | 'shell' | 'glsl' | 'python' | 'xml' | 'diff' | 'ini';
+  lang: 'c' | 'bash' | 'shell' | 'glsl' | 'python' | 'xml' | 'diff' | 'ini' | 'markdown';
 };
 
 export default function CodeBlock({ code, lang }: Props) {

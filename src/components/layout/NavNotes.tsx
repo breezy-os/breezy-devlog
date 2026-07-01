@@ -43,6 +43,7 @@ export default function NavNotes({ pageChanged }: Props) {
 
     {createLinkGroup(page, selectedPageRef, "Wayland", [
         { pageType: 'notes', pageId: 'wayland-overview', displayText: "Overview" },
+        { pageType: 'notes', pageId: 'wayland-surfaces', displayText: "Surfaces" },
     ])}
   </>);
 }
