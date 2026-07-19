@@ -6,7 +6,7 @@ import ContextBox from "@/components/common/ContextBox";
 export default function LinuxCTestingAndAnalysis() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="C Testing and Analysis" date="Last Update: April 27, 2026" />
+      <ArticleTitle title="C Testing and Analysis" date="Last Update: July 8, 2026" />
       <p>I'm a solid believer in having appropriate tests for large code repos. They're a pain to make, but as long as the code you're testing doesn't change frequently, automated tests will pay for themselves in spades. Additionally, code analysis tools are best to get set up on a new project as opposed to trying to add them to an existing project, so we'll also explore a few analysis options on this page.</p>
 
       <h2>Testing Frameworks</h2>
@@ -15,6 +15,11 @@ export default function LinuxCTestingAndAnalysis() {
       <h3>Unity</h3>
       <p>Unity is just 3 files: <code>unity.c</code>, <code>unity.h</code>, <code>unity_internals.h</code>. To define a test file, you'd create a <code>.c</code> file with a <code>main()</code> function that looks close to the following:</p>
       <CodeBlock lang="c" code={`
+// Unity requires a setUp and tearDown method to be defined, even if they are
+//   no-ops. These would be executed before and after each test function.
+void setUp(void) {}
+void tearDown(void) {}
+
 int main(void) {
     // 1) Start our test run
     UNITY_BEGIN();
@@ -132,6 +137,9 @@ void test_my_func() {
       `.trim()} />
 
       <p>You might've noticed I used two new macros in that example: <code>RESET_FAKE(...)</code> and <code>FFF_RESET_HISTORY()</code>. They should be pretty self-explanatory, but just note that they exist and you should use them.</p>
+      <ContextBox type="info">
+        <p>The general recommendation is to put the "reset" calls in a <code>setUp()</code> method that gets called before every test to make sure every test starts with a clean slate.</p>
+      </ContextBox>
 
       <ContextBox type="note">
         <p>There are a few other useful macros you can use for checking things like call history when one of your mocked functions gets called multiple times. For a complete reference, check out FFF's Github readme: <a href="https://github.com/meekrosoft/fff">https://github.com/meekrosoft/fff</a></p>

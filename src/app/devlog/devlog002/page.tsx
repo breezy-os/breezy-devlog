@@ -23,6 +23,14 @@ export default function Devlog002() {
           <h2>Related Links</h2>
           <p>Here's the PR for these changes: <a href="https://github.com/breezy-os/breezy/pull/2">Github PR #2</a></p>
           <p>There's also a note page on <Link href={`/notes/linux-rendering`}>"Linux Rendering"</Link> that talks a bit more about this stuff.</p>
+          <div>
+          <p>Additionally, here are a few links to the official source code and documentation for these topics/libraries:</p>
+          <ul>
+            <li><code>libseat</code> header file (good documentation): <a href="https://github.com/kennylevinsen/seatd/blob/master/include/libseat.h">libseat.h</a></li>
+            <li><code>libdrm</code>: <a href="https://gitlab.freedesktop.org/mesa/libdrm">Repo</a>, <a href="https://gitlab.freedesktop.org/mesa/libdrm/-/blob/main/man/drm.7.rst?ref_type=heads">Man Pages</a>, and <a href="https://docs.nvidia.com/jetson/l4t-multimedia/group__direct__rendering__manager.html#gaf7cbcfbaf1decf92c6638af4adec39a2">API</a></li>
+            <li><code>gbm</code> source code: <a href="https://gitlab.freedesktop.org/mesa/mesa/-/tree/main/src/gbm?ref_type=heads">Mesa / gbm</a></li>
+          </ul>
+          </div>
         </div>
       </ContextBox>
     </div>

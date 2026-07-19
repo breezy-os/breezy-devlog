@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: June 30, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: July 8, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">
@@ -14,14 +14,15 @@ export default function Devlog() {
       </ul>
       <p>Still better than nothing though, right? <span className="emph2">...right?</span></p>
 
-      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*5.5/13} items={[
+      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*6/13} items={[
         { status: 'done', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
         { status: 'done', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
         { status: 'done', name: "Keyboard input", description: "Add hooks for keyboard hotkeys." },
         { status: 'done', name: "Wayland setup", description: "Set up Wayland globals." },
         { status: 'done', name: "Connecting a Wayland client", description: "Create a Wayland client, display its connection status on-screen." },
-        { status: 'inprogress', name: "Displaying a Wayland client", description: "Display a Wayland client's static buffer." },
-        { status: 'todo', name: "Updating a Wayland client", description: "Display updates to our Wayland client's buffer." },
+        { status: 'done', name: "Displaying a Wayland client", description: "Display a Wayland client's static buffer." },
+        { status: 'inprogress', name: "Updating a Wayland client", description: "Display updates to our Wayland client's buffer." },
+        { status: 'todo', name: "Support surface layering", description: "Allow surfaces to define their z-index." },
         { status: 'todo', name: "Pointer input", description: "Add support for mouse pointers." },
         { status: 'todo', name: "Keyboard events", description: "Forward keyboard events to clients." },
         { status: 'todo', name: "Use a third-party client", description: "Make use of an actual third-party application." },

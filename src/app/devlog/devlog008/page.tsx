@@ -23,7 +23,6 @@ export default function Devlog008() {
         <div className="article-flex">
           <h2>Related Links</h2>
           <p>Here's the PR for these changes: <a href="https://github.com/breezy-os/breezy/pull/5">Github PR #5</a></p>
-          <p>The <Link href={`/notes/wayland-surfaces`}>"Wayland Surfaces"</Link> notes page goes a bit deeper into the Wayland protocol details if you want more of the beans.</p>
           <p>There are also protocol reference pages for the interfaces discussed in this video:</p>
           <ul className="narrow">
             <li><a href="https://wayland.app/protocols/wayland"><code>wl_*</code> protocols</a></li>

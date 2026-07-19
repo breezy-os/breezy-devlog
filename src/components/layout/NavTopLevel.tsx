@@ -138,7 +138,7 @@ export default function NavTopLevel({ theme, setTheme }: Props) {
     <nav className="nav-top-level" style={{ background: backgroundString }}>
       {/* Logo */}
       <div style={{ textAlign: 'center', marginTop: '28px' }}>
-        <BreezyLogo />
+        <Link href={`/`}><BreezyLogo /></Link>
       </div>
 
       {/* Page Type Selector */}
