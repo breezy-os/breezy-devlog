@@ -1,6 +1,7 @@
 
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import Link from "next/link";
 
 const CODE = `#include <stdio.h>
@@ -212,6 +213,8 @@ static GLuint compile_shader(GLenum type, const char *code)
 export default function OpenglCompleteExample() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="OpenGL Complete Example" date="Last Update: May 25, 2026" />
       <p>Here's a complete code example, built by combining the snippets from the following pages:</p>
       <ol className="narrow">

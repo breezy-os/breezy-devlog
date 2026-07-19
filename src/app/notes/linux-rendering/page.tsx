@@ -2,12 +2,15 @@
 import { em } from "@/app/utils";
 import ArticleTitle from "@/components/common/ArticleTitle"
 import ContextBox from "@/components/common/ContextBox";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import Link from "next/link";
 
 
 export default function LinuxRendering() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="Linux Rendering" date="Last Update: April 12, 2026" />
       <p>When I first started this project, I had no idea there were so many technologies and pieces involved with rendering even a simple rectangle on the screen. I'll do my best to break down what each piece does down below, and some info for using it. Keep in mind this is only a very high-level overview for each, as they could all use their own entire website explaining their details. I might make deeper dives into these technologies if I have a need to dig more into them, but for now, this'll do.</p>
 

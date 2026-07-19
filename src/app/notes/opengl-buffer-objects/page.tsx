@@ -8,6 +8,7 @@ import SvgTriangles from "./SvgTriangles";
 import SvgDots from "./SvgDots";
 
 import './opengl-buffer-objects.css';
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 
 
 const HIGH_LEVEL_FLOW = `// 1) Create / activate the VAO
@@ -139,6 +140,8 @@ glDeleteBuffers(1, &ebo);`;
 export default function OpenglBufferObjects() {
   return (
     <div className="content-area article-flex opengl-buffer-objects">
+      <DeprecationNotice />
+
       <ArticleTitle title="OpenGL Buffer Objects" date="Last Update: April 18, 2026" />
       <p>With all the talk and importance of shaders, you'd think we'd start there, but nah: <span className="emph1">Buffer Objects</span>. There are different types of buffer objects; here are the ones I've come across and have needed to use:</p>
       <ul>

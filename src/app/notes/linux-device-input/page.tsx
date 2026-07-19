@@ -2,6 +2,7 @@
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock"
 import ContextBox from "@/components/common/ContextBox";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import Link from "next/link";
 
 
@@ -19,6 +20,8 @@ sudo libinput debug-events`;
 export default function LinuxDeviceInput() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="Device Input" date="Last Update: April 12, 2026" />
       <p>When you push a button on your keyboard, how does that keystroke find its way to an application? What about moving around your mouse, or interacting with a touchscreen or touchpad? As is true for basically all software, it's all just layers on top of layers of abstraction.</p>
 

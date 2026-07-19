@@ -2,10 +2,13 @@
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock"
 import ContextBox from "@/components/common/ContextBox"
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 
 export default function LinuxVoidLinux() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="Void Linux" date="Last Update: June 5, 2026" />
       <p><span className="emph1">Void Linux</span> is a minimalistic, stable Linux distribution that prioritizes speed and stability. It provides very little out of the box, but allows for a lot of manual customization, allowing you to tweak and customize your installation however you see fit. It's not derived from Debian or Redhat (or based on <span className="emph2">any</span> distro for that matter), so don't plan on using any <code>.deb</code> or <code>.rpm</code> packages with it. It also doesn't use systemd, opting to use runit instead, which is a major plus in my book.</p>
       <p>I'm planning to use it as the basis for Breezy, but I'm still learning and experimenting with it, so there's a chance that could change. It's worth noting that the core installation is not the most user friendly and is a headless (no GUI) operating system. They do provide a download that's preloaded with Xfce, but if you're taking the Void route, I'd recommend just checking out their documentation on <a href="https://docs.voidlinux.org/config/graphical-session/index.html">"Graphical Sessions"</a> and handpicking whichever one you want.</p>

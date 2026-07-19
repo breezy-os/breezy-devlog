@@ -2,6 +2,7 @@
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
 import ContextBox from "@/components/common/ContextBox";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import Link from "next/link";
 
 const CONTEXT_SNIP = `#include <stdio.h>
@@ -74,6 +75,8 @@ const COMPILATION_2 = `gcc -o ./demo -Iglad/include ./main.c ./glad/src/gles2.c 
 export default function OpenglOverview() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="OpenGL Overview" date="Last Update: April 12, 2026" />
       <p>As mentioned on the <Link href={`/notes/linux-rendering`}>"Linux &gt; Rendering"</Link> notes page, OpenGL is a protocol for a graphics library that takes a bunch of concepts (such as "a red rectangle and a green triangle"), and converts them into a buffer that stores a bunch of pixel data representing your final graphic. Some other technology (ex: DRM/KMS) then takes that pixel buffer and sends it to your screen for display. A popular implementation of OpenGL is created by Mesa.</p>
       <p>The OpenGL ecosystem is large and diverse. OpenGL by itself is just a rendering API, meaning it converts geometric concepts into pixels. You need to use other libraries to do things like manage your application window or even <span className="emph2">load</span> your OpenGL functions to make them actually accessible to your program. This page covers the basic setup of a few different OpenGL technologies. Once you've read this, there's also a "part 2" and "part 3" which cover OpenGL Buffer Objects and rendering via OpenGL Shaders that will fill in a few gaps with some necessary details.</p>

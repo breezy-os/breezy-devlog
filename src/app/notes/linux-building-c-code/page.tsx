@@ -3,12 +3,15 @@ import { em } from "@/app/utils";
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock"
 import ContextBox from "@/components/common/ContextBox"
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import HorizontalRule from "@/components/common/HorizontalRule";
 import Link from "next/link";
 
 export default function LinuxBuildingCCode() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="Building C Code" date="Last Update: April 27, 2026" />
       <p>I remember back in my college days trying to learn C, and not really understanding the build process. Sure, I had a command I could run that would create an executable file, but I could never keep straight the different stages of the build, where libraries were loaded from, nor really understood the point of higher-level build tools. Now that I'm (marginally) more mature and working on a project that will need something more complex than a basic <code>gcc</code> command, I wrote this up to help out.</p>
 

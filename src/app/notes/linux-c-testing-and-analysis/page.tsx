@@ -2,10 +2,13 @@
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
 import ContextBox from "@/components/common/ContextBox";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 
 export default function LinuxCTestingAndAnalysis() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="C Testing and Analysis" date="Last Update: July 8, 2026" />
       <p>I'm a solid believer in having appropriate tests for large code repos. They're a pain to make, but as long as the code you're testing doesn't change frequently, automated tests will pay for themselves in spades. Additionally, code analysis tools are best to get set up on a new project as opposed to trying to add them to an existing project, so we'll also explore a few analysis options on this page.</p>
 

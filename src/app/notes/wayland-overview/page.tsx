@@ -8,6 +8,7 @@ import SvgMessageFormat from "./SvgMessageFormat";
 import CodeBlock from "@/components/common/CodeBlock";
 import HorizontalRule from "@/components/common/HorizontalRule";
 import Link from "next/link";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 
 export default function WaylandOverview() {
   const mainContent = useRef<HTMLDivElement | null>(null);
@@ -20,6 +21,8 @@ export default function WaylandOverview() {
 
   return (
     <div className="content-area article-flex" ref={mainContent}>
+      <DeprecationNotice />
+
       <ArticleTitle title="Wayland Overview" date="Last Update: May 25, 2026" />
       <p>Most Linux users have heard the term "Wayland", maybe in the context of a windowing system, maybe compared against X11, but most likely accompanied by a few swears related to their applications not working on it. But what exactly is Wayland and how does it work?</p>
 

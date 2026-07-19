@@ -3,6 +3,7 @@ import { em } from "@/app/utils";
 import ArticleTitle from "@/components/common/ArticleTitle"
 import CodeBlock from "@/components/common/CodeBlock";
 import ContextBox from "@/components/common/ContextBox";
+import DeprecationNotice from "@/components/common/DeprecationNotice";
 import Link from "next/link";
 
 const INTRO_CODE = `float vertices[] = {
@@ -159,6 +160,8 @@ glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 export default function OpenglShaderPrograms() {
   return (
     <div className="content-area article-flex">
+      <DeprecationNotice />
+
       <ArticleTitle title="Shader Programs" date="Last Update: April 12, 2026" />
       <ContextBox type="info">
         <p>At this point, you should have a basic understanding OpenGL buffer objects, such as VAOs, VBOs, and EBOs. If you have no idea what I'm talking about, go check out this other article: <Link href={`/notes/opengl-buffer-objects`}>OpenGL Buffer Objects</Link>.</p>
