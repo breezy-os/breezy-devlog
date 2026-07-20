@@ -10,7 +10,7 @@ export default function Devlog009() {
       <ArticleTitle title="Surface Frames" date="July 19, 2026" />
 
       <p>It's a short video today, but one that I've been looking forward to. In this devlog, we level up from stationary / unchanging surfaces to animated ones by making use of Wayland Surface's <code>frame</code> request and callback mechanism. One of the best parts about this is that it unlocks our ability to make our test clients interactive, opening up the number of things we're able to work on next.</p>
-      <EmbeddedVideo videoSlug="1ddPWH67Tas" />
+      <EmbeddedVideo videoSlug="wKDAdUgarSU" />
 
       <h2>Frame Request</h2>
       <p>The <code>wl_surface</code> object has a <code>frame</code> request available on it that drives the animation loop on the clients. At a high-level, the frame request gets submitted with each surface commit. The frame request basically says "hey, let me know when you're ready for the next frame". The client will then sit there and wait -- no point in creating and sending new commits if the compositor isn't ready to draw them on the screen.</p>

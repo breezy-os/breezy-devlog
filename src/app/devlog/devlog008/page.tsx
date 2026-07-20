@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Devlog008() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Static Surfaces" date="June 30, 2026" />
+      <ArticleTitle title="Surface Basics" date="June 30, 2026" />
 
       <p>Today's the day! We finally get to render an actual client buffer using our compositor. Is that an exciting process? No, not really. But the results must surely be mindboggling then..?! ...ehh. But we're starting to cross that threshold of being able to do more visual demos and experiments now, so that's exciting.</p>
       <EmbeddedVideo videoSlug="1ddPWH67Tas" />
