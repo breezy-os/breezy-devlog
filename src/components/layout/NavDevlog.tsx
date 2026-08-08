@@ -14,8 +14,7 @@ export default function NavDevlog({ pageChanged }: Props) {
 
   const selectedPageRef = useRef<null | HTMLAnchorElement>(null);
 
-  // This notifies the parent to move the "selected page highlight" to cover
-  // the currently-chosen page.
+  // This notifies the parent to move the "selected page highlight" to cover the currently-chosen page.
   useEffect(() => {
     if (selectedPageRef.current == null) return;
     const bb = selectedPageRef.current.getBoundingClientRect();
@@ -36,6 +35,7 @@ export default function NavDevlog({ pageChanged }: Props) {
         { pageType: 'devlog', pageId: 'devlog005-007', displayText: "Devlog 5-7: Self-Hosting Series" },
         { pageType: 'devlog', pageId: 'devlog008', displayText: "Devlog 8: Surface Basics" },
         { pageType: 'devlog', pageId: 'devlog009', displayText: "Devlog 9: Surface Frames" },
+        { pageType: 'devlog', pageId: 'devlog010', displayText: "Devlog 10: Wayland Keyboards" },
     ])}
   </>);
 }
