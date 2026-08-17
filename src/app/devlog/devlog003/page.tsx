@@ -10,7 +10,7 @@ export default function Devlog003() {
       <ArticleTitle title="Keyboard Input" date="May 16, 2026" />
 
       <p>The days of running the compositor and just waiting for it to exit are finally over. That's right, now we can actually have an influence on what it does <span className="emph2">while</span> it's running. In today's adventure, we set up our keyboard input, and configure a few hotkeys to do different things. Are they fun and interesting things? ...uhh, maybe..?</p>
-      <EmbeddedVideo videoSlug="hfvti_-CtwM" />
+      <EmbeddedVideo videoSlug="hfvti_-CtwM" altLink="https://odysee.com/@BreezyOSDev:2/devlog003:f" />
 
       <h2>Refactoring</h2>
       <p>Yeah, code cleanup is never the most exciting change, but we update and restructure a few things to make our lives easier in the long run. Aside from some renamings, we separate our seat code from our graphics code, and define a new <code>bz_breezy</code> struct to pass around some common data.</p>

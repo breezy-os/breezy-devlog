@@ -10,7 +10,7 @@ export default function Devlog010() {
       <ArticleTitle title="Wayland Keyboards" date="August 7, 2026" />
 
       <p>Today's the day we finally bridge the interaction gap between the user and our applications. Once we set up our Wayland seats, we hook up our Wayland keyboard capabilities, and use our newfound, limitless powers to ... move a little circle around. Wow.</p>
-      <EmbeddedVideo videoSlug="sez8WiX4etc" />
+      <EmbeddedVideo videoSlug="sez8WiX4etc" altLink="https://odysee.com/@BreezyOSDev:2/devlog010:f" />
 
       <h2>Wayland Seats</h2>
       <p>A Wayand seat (<code>wl_seat</code>) is a group of input devices that represent a physical seat at your desk. You'd have one or more keyboards, mice, and/or touch devices, and you'd use these to interact with your computer. I know, groundbreaking stuff.</p>

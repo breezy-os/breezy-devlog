@@ -18,7 +18,7 @@ export default function Devlog005() {
 
       <h2>Part 1: Void Linux on Pi</h2>
       <p>In this devlog, we install Void Linux on our pi and get it prepared for secure use. If you're following along, the main commands used throughout the video are captured below.</p>
-      <EmbeddedVideo videoSlug="UhK3ukd8jVc" />
+      <EmbeddedVideo videoSlug="UhK3ukd8jVc" altLink="https://odysee.com/@BreezyOSDev:2/Devlog-5--Void-Linux-on-Pi:3" />
 
       <p>The first step is to download, install, and flash your Raspberry Pi with Void Linux. The process for doing this is shown in this week's video, and there's not really any commands to put here.</p>
       <p>Once you have Void Linux installed and running, you'll connect to it and then step through the following:</p>
@@ -185,7 +185,7 @@ exit
 
       <h2>Part 2: Deploying a Web App</h2>
       <p>In devlog 6, we deploy an example personal webapp to our prepared pi server, and run it as a <span className="emph1">runit</span> service. The web app we'll be using is a simple agenda app serving as an experiment for something to integrate into Breezy one day. If you're following along, I've captured the main commands used throughout the video below.</p>
-      <EmbeddedVideo videoSlug="rLBXmI4OK50" />
+      <EmbeddedVideo videoSlug="rLBXmI4OK50" altLink="https://odysee.com/@BreezyOSDev:2/Devlog-6--Deploying-a-Web-App:4" />
 
       <p>To start off, I'll assume you have an active terminal session with your pi - whether that be via ssh or a direct connection. Given that, to get the agenda web app set up, you'll need to:</p>
 
@@ -356,7 +356,7 @@ ls -al /root/agenda-backups/*
 
       <h2>Part 3: Configuring a VPN</h2>
       <p>Devlog 7 is the epic conclusion to this sidequest of wonderment. We deploy our very own, personal VPN server which restricts external access to both our pi and web app to just ourselves. If you're following along, the main commands used throughout the video are captured below.</p>
-      <EmbeddedVideo videoSlug="H1CtQkoZpfE" />
+      <EmbeddedVideo videoSlug="H1CtQkoZpfE" altLink="https://odysee.com/@BreezyOSDev:2/devlog007:d" />
 
       <ContextBox type="info">
         <div className="article-flex">

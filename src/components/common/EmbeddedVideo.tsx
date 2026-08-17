@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 type Props = {
   videoSlug: string;
+  altLink?: string;
 };
 
 function randomColor() {
@@ -17,7 +18,7 @@ const corners = [
   { x: 10, y: 90 },
 ];
 
-export default function EmbeddedVideo({ videoSlug }: Props) {
+export default function EmbeddedVideo({ videoSlug, altLink }: Props) {
   const [gradients, setGradients] = useState<{ x: number; y: number; hue: number }[]>([]);
   const backgroundString = useMemo(() => {
     const opacity = '50%';
@@ -60,7 +61,7 @@ export default function EmbeddedVideo({ videoSlug }: Props) {
   }, []);
 
   return (
-    <div style={{ padding: '5px', margin: '40px auto', width: '100%', maxWidth: '560px', aspectRatio: '560 / 319', position: 'relative' }}>
+    <div style={{ padding: '5px', margin: '40px auto', width: '100%', maxWidth: '560px', aspectRatio: '560 / 319', position: 'relative', textAlign: 'center' }}>
       <div style={{ position: 'absolute', margin: '-5px', borderRadius: '8px', width: '100%', height: '100%', background: backgroundString, filter: 'blur(8px)' }} />
       <iframe
         style={{ display: 'block', background: 'black', boxShadow: '0px 4px 8px 0px rgba(0,0,0,0.5)', borderRadius: '8px', opacity: 1, position: 'relative', zIndex: 2 }}
@@ -72,6 +73,9 @@ export default function EmbeddedVideo({ videoSlug }: Props) {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      {altLink && (
+        <a style={{ top: '10px', position: 'relative', fontSize: '14px', color: 'var(--foreground40)' }} href={altLink}>Also available on Odysee</a>
+      )}
     </div>
   );
 }

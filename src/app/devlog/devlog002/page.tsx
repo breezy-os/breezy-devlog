@@ -9,7 +9,7 @@ export default function Devlog002() {
     <div className="content-area article-flex">
       <ArticleTitle title="Displaying Something" date="May 8, 2026" />
       <p>Today is a <span className="emph2">"hang some artwork up on the fridge"</span> kind of day! ...though the artwork is just a solid color, and you can only see it for about 1 second, but hey, it's your fridge and you can hang up whatever you want. In this devlog, we set up our rendering stack, taking over our monitor's output from a virtual terminal (VT), and displaying an incredibly exciting shade of dark blue. If that doesn't put you on the edge of your seat, I don't know what will.</p>
-      <EmbeddedVideo videoSlug="TVboMAE4nUw" />
+      <EmbeddedVideo videoSlug="TVboMAE4nUw" altLink="https://odysee.com/@BreezyOSDev:2/devlog002:d" />
 
       <h2>DRM</h2>
       <p>The main Linux subsystem responsible for doing anything related to your graphics card is called the <span className="emph1">"DRM" (Direct Rendering Manager)</span>. There's a fancy library we use to interact with it called <code>libdrm</code>, and we use that to query and configure a bunch of DRM resources (CRTCs, connectors, encoders, modes, ...). Once all that's configured, and once we've claimed the role of <span className="emph2">"DRM Master"</span> through <code>libseat</code>, we've got a pipeline in place that will let us send beautiful display buffers out to the monitor. ...but before we can do that, we need to create those buffers and actually draw things on them.</p>

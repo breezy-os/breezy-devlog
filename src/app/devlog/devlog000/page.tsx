@@ -15,7 +15,7 @@ export default function Devlog000() {
     <div className="content-area article-flex">
       <ArticleTitle title="What's the big idea?" date="April 19, 2026" />
       <p><span className="emph1">Breezy</span> is a build-in-public, open-source project with the goal of <span className="emph1">creating an ecosystem of software and devices</span> that make self-hosting not only dead-simple, but also a better experience than the free, cloud options. If that interests you, read-on and consider following the accompanying video series {em('🙂')}</p>
-      <EmbeddedVideo videoSlug="uqdYgXSDgd0" />
+      <EmbeddedVideo videoSlug="uqdYgXSDgd0" altLink="https://odysee.com/@BreezyOSDev:2/devlog000:8" />
 
       <h2>Clouds ☁️</h2>
       <p>We've become spoiled by cloud services. Our files and photos are synchronized everywhere. We can play just about any song or movie on-demand. Any question we have is only a single prompt away from being answered. The only cost to all of this wonderful convenience is our loss of privacy and lack of control over our own personal data. ...and the occasional subscription fee, of course.</p>

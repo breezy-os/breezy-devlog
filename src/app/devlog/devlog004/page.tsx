@@ -10,7 +10,7 @@ export default function Devlog004() {
       <ArticleTitle title="Wayland Overview" date="May 26, 2026" />
 
       <p>Wayland is a protocol that defines how client applications can communicate with a display server, and is a modern alternative to X11's ancient design. It's had a relatively slow adoption, and that has resulted in quite a few compatibility issues and headaches for a lot of Linux users. Despite the issues, it's still the best modern-day option, so today we'll be putting in some groundwork for supporting Wayland inside Breezy.</p>
-      <EmbeddedVideo videoSlug="bdYKhOXdP_Y" />
+      <EmbeddedVideo videoSlug="bdYKhOXdP_Y" altLink="https://odysee.com/@BreezyOSDev:2/devlog004:6" />
 
       <h2>What's included?</h2>
       <p>Today, we set up the Wayland socket to receive client connections, configure a few hotkeys to launch and terminate clients, and then try to connect a test client to our server. While it technically does establish the connection, it's only for a very brief moment before it falls victim to some very predictable sadness.</p>

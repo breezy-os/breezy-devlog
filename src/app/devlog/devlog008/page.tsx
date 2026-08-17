@@ -10,7 +10,7 @@ export default function Devlog008() {
       <ArticleTitle title="Surface Basics" date="June 30, 2026" />
 
       <p>Today's the day! We finally get to render an actual client buffer using our compositor. Is that an exciting process? No, not really. But the results must surely be mindboggling then..?! ...ehh. But we're starting to cross that threshold of being able to do more visual demos and experiments now, so that's exciting.</p>
-      <EmbeddedVideo videoSlug="1ddPWH67Tas" />
+      <EmbeddedVideo videoSlug="1ddPWH67Tas" altLink="https://odysee.com/@BreezyOSDev:2/devlog008:b" />
 
       <h2>Interfaces</h2>
       <p>There are a few key interfaces we need to make use out of in order to get our client's buffer of pixels to the server. We make use of <code>wl_shm</code> to create a <code>wl_shm_pool</code>, which is a pool of shared memory. Then from that, we create some <code>wl_buffer</code> resources, allowing us to share our data with the compositor.</p>

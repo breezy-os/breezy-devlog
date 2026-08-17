@@ -9,7 +9,7 @@ export default function Devlog001() {
     <div className="content-area article-flex">
       <ArticleTitle title="Project Setup" date="April 28, 2026" />
       <p>This is a "boilerplate" kind of day. Lots of boring things to get set up and out of the way before we can get started on the actual project {em('🥱')}. In this devlog, we set up our <span className="emph1">build tool</span>, <span className="emph1">test frameworks</span>, and our <span className="emph1">code analysis tools</span> so we have a solid ground to build on.</p>
-      <EmbeddedVideo videoSlug="HyIdP4MlafA" />
+      <EmbeddedVideo videoSlug="HyIdP4MlafA" altLink="https://odysee.com/@BreezyOSDev:2/Devlog-1--Project-Setup:0" />
 
       <h2>Build Tool</h2>
       <p>I'll be using <span className="emph1">Meson</span> as my build tool, and splitting the build across a few different subdirectories. We'll have one area for all of our utility files, one area that generates our main executable, and then a third for housing and running all of our tests. We don't actually have any utilities or tests yet, so we'll just create some filler files for now.</p>
