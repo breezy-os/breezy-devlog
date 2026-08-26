@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: August 7, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: August 26, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">
@@ -14,7 +14,7 @@ export default function Devlog() {
       </ul>
       <p>Still better than nothing though, right? <span className="emph2">...right?</span></p>
 
-      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*8/13} items={[
+      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*9/14} items={[
         { status: 'done', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
         { status: 'done', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
         { status: 'done', name: "Keyboard input", description: "Add hooks for keyboard hotkeys." },
@@ -23,8 +23,8 @@ export default function Devlog() {
         { status: 'done', name: "Displaying a Wayland client", description: "Display a Wayland client's static buffer." },
         { status: 'done', name: "Updating a Wayland client", description: "Display updates to our Wayland client's buffer." },
         { status: 'done', name: "Keyboard events", description: "Forward keyboard events to clients." },
-        { status: 'inprogress', name: "Pointer input", description: "Add support for mouse pointers." },
-        { status: 'todo', name: "Use a third-party client", description: "Make use of an actual third-party application." },
+        { status: 'done', name: "Pointer input", description: "Add support for mouse pointers." },
+        { status: 'inprogress', name: "Use a third-party client", description: "Make use of an actual third-party application." },
         { status: 'todo', name: "Support surface layering", description: "Allow surfaces to define their z-index." },
         { status: 'todo', name: "Performance enhancements", description: "Add performance-focused protocols." },
         { status: 'todo', name: "Basic tiling for multiple clients", description: "Have multiple clients auto-tile on the screen." },

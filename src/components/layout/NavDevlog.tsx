@@ -36,6 +36,7 @@ export default function NavDevlog({ pageChanged }: Props) {
         { pageType: 'devlog', pageId: 'devlog008', displayText: "Devlog 8: Surface Basics" },
         { pageType: 'devlog', pageId: 'devlog009', displayText: "Devlog 9: Surface Frames" },
         { pageType: 'devlog', pageId: 'devlog010', displayText: "Devlog 10: Wayland Keyboards" },
+        { pageType: 'devlog', pageId: 'devlog011', displayText: "Devlog 11: Wayland Pointers" },
     ])}
   </>);
 }

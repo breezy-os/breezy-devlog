@@ -27,6 +27,7 @@ export default function Devlog010() {
           <ul className="narrow">
             <li><a href="https://wayland.app/protocols/wayland#wl_seat"><code>wl_seat</code> object</a></li>
             <li><a href="https://wayland.app/protocols/wayland#wl_keyboard"><code>wl_keyboard</code> object</a></li>
+            <li><a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__event__keyboard.html"><code>libinput</code> keyboard API</a></li>
           </ul>
         </div>
       </ContextBox>
