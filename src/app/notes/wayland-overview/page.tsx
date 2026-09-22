@@ -23,7 +23,7 @@ export default function WaylandOverview() {
     <div className="content-area article-flex" ref={mainContent}>
       <DeprecationNotice />
 
-      <ArticleTitle title="Wayland Overview" date="Last Update: May 25, 2026" />
+      <ArticleTitle title="Wayland Overview" date="Last Update: September 22, 2026" />
       <p>Most Linux users have heard the term "Wayland", maybe in the context of a windowing system, maybe compared against X11, but most likely accompanied by a few swears related to their applications not working on it. But what exactly is Wayland and how does it work?</p>
 
       <h2>It's a Protocol</h2>
@@ -49,7 +49,7 @@ export default function WaylandOverview() {
         <SvgMessageFormat />
       </div>
       <p>The first 32 bits in all messages are an object ID representing the object that the message is operating on. The server refers to these objects as <span className="emph1">resources</span> (<code>wl_resource</code>), and the client refers to these objects as <span className="emph1">proxies</span> (<code>wl_proxy</code>), but ultimately they're the same thing.</p>
-      <p>The next 16 bits contain the message length, and is needed since the message data is of variable length. Different messages require different arguments to convey their meaning.</p>
+      <p>The next 16 bits contain the message length, and are needed since the message data is of variable length. Different messages require different arguments to convey their meaning.</p>
       <p>Then comes the opcode, which is the type of message that's being sent. Whoever receives the message uses a combination of the object ID and opcode to determine how to process that message.</p>
 
       <h2>Protocol Libraries</h2>
@@ -229,7 +229,7 @@ WAYLAND_DEBUG=1 foot > ./output 2>&1
         <li><code><span className="emph1">wl_shm</span></code> - Creates and manages all things related to shared memory for display buffers. This memory is only for CPU / RAM processing, which means it has good support but is slow compared to GPU / VRAM (which you'd get via the DMA-BUF extension).</li>
         <li><code><span className="emph1">wl_seat</span></code> - Creates and manages all input devices related to the active seat, such as keyboards, pointers, and touch devices.</li>
         <li><code><span className="emph1">wl_output</span></code> - Manages things related to the visible display for the compositor, which is a fancy way of saying "your monitor's resolution, rotation, scale, etc".</li>
-        <li><code><span className="emph1">wl_data_device_manager</span></code> - Creates and manages objects related to cross-client interactions. This is useful for things like copy-paste and drang-and-drop, and ties closely to <code>wl_seat</code>.</li>
+        <li><code><span className="emph1">wl_data_device_manager</span></code> - Creates and manages objects related to cross-client interactions. This is useful for things like copy-paste and drag-and-drop, and ties closely to <code>wl_seat</code>.</li>
       </ul>
       <p>There are dozens of non-global object types, so I won't be listing them all out here. As I cover them in the main devlog series, there'll be new notes pages published that go into more details on them.</p>
 
