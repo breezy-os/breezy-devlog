@@ -4,7 +4,7 @@ import ProgressTracker from "@/components/common/ProgressTracker";
 export default function Devlog() {
   return (
     <div className="content-area article-flex">
-      <ArticleTitle title="Project Tracker" date="Last Update: September 21, 2026" />
+      <ArticleTitle title="Project Tracker" date="Last Update: November 8, 2026" />
       <p>This page tracks the high-level progress for Breezy! 🎉</p>
       <p>Few things worth noting:</p>
       <ul className="narrow">
@@ -14,7 +14,7 @@ export default function Devlog() {
       </ul>
       <p>Still better than nothing though, right? <span className="emph2">...right?</span></p>
 
-      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*10/12} items={[
+      <ProgressTracker title="Phase 1: Crude Compositor" progress={100*11/12} items={[
         { status: 'done', name: "Project setup", description: "Set up git repo, build tool, test framework, etc." },
         { status: 'done', name: "Displaying something", description: "Set up display stack: OpenGL, GBM, DRM, etc." },
         { status: 'done', name: "Keyboard input", description: "Add hooks for keyboard hotkeys." },
@@ -25,8 +25,8 @@ export default function Devlog() {
         { status: 'done', name: "Keyboard events", description: "Forward keyboard events to clients." },
         { status: 'done', name: "Pointer input", description: "Add support for mouse pointers." },
         { status: 'done', name: "Use a third-party client", description: "Make use of an actual third-party application." },
-        { status: 'inprogress', name: "Basic tiling for multiple clients", description: "Have multiple clients auto-tile on the screen." },
-        { status: 'todo', name: "Workspaces", description: "Transition between multiple workspaces containing clients." },
+        { status: 'done', name: "Basic tiling for multiple clients", description: "Have multiple clients auto-tile on the screen." },
+        { status: 'inprogress', name: "Workspaces", description: "Transition between multiple workspaces containing clients." },
       ]} />
 
       <ProgressTracker title="Phase 2: Barely-Functional Home Server" progress={0} items={[

@@ -38,6 +38,7 @@ export default function NavDevlog({ pageChanged }: Props) {
         { pageType: 'devlog', pageId: 'devlog010', displayText: "Devlog 10: Wayland Keyboards" },
         { pageType: 'devlog', pageId: 'devlog011', displayText: "Devlog 11: Wayland Pointers" },
         { pageType: 'devlog', pageId: 'devlog012', displayText: "Devlog 12: Third-Party App" },
+        { pageType: 'devlog', pageId: 'devlog013', displayText: "Devlog 13: Tiling Manager" },
     ])}
   </>);
 }
